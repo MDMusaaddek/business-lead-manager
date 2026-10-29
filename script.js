@@ -35,7 +35,7 @@ const practiceMessage = document.querySelector("#practice-message");
 
 if (practiceButton && practiceMessage) {
   practiceButton.addEventListener("click", function () {
-    practiceMessage.textContent =
+    practiceMesage.textContent =
       "Your business deserves better digital solutions!";
   });
 }
@@ -70,3 +70,86 @@ if (leadForm && nameInput && emailInput && formMessage) {
     leadForm.reset();
   });
 }
+function divideNumbers(a, b) {
+  if (b === 0) {
+    throw new Error("Cannot divide by zero.");
+  }
+
+  return a / b;
+}
+
+try {
+  const result = divideNumbers(10, 2);
+  console.log("Result:", result);
+} catch (error) {
+  console.error("Calculation failed:", error.message);
+}
+
+const leadStatus = "Contacted";
+
+if (leadStatus === "New") {
+  console.log("This lead needs attention.");
+} else if (leadStatus === "Contacted") {
+  console.log("Follow up with this client.");
+} else {
+  console.log("No action required right now.");
+}
+
+const leads = [
+  { name: "Alex", status: "New" },
+  { name: "Sarah", status: "Contacted" },
+  { name: "John", status: "New" }
+];
+
+for (const lead of leads) {
+  console.log(lead.name + " - " + lead.status);
+}
+
+const lead = {
+  name: "Alex Morgan",
+  email: "alex@example.com",
+  service: "AI Chatbot",
+  status: "New",
+  budget: 500
+};
+
+console.log(lead);
+console.log(lead.name);
+console.log(lead.service);
+console.log(lead.budget);
+
+lead.status = "Contacted";
+lead.budget = 750;
+
+console.log(lead.status);
+console.log(lead.budget);
+
+const allLeads = [
+  { name: "Alex", status: "New", budget: 500 },
+  { name: "Sarah", status: "Contacted", budget: 800 },
+  { name: "John", status: "New", budget: 300 },
+  { name: "Maria", status: "Qualified", budget: 1200 }
+];
+
+const newLeads = allLeads.filter(function (lead) {
+  return lead.status === "New";
+});
+
+console.log(newLeads);
+console.log("New leads:", newLeads.length);
+
+const leadNames = allLeads.map(function (lead) {
+  return lead.name;
+});
+
+console.log(leadNames);
+
+const newLeadNames = allLeads
+  .filter(function (lead) {
+    return lead.status === "New";
+  })
+  .map(function (lead) {
+    return lead.name;
+  });
+
+console.log(newLeadNames);
