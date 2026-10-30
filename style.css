@@ -171,3 +171,44 @@ footer {
 #form-message {
   min-height: 24px;
 }
+
+#lead-manager {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+#lead-manager select {
+  padding: 10px;
+  margin: 12px 0;
+}
+
+#lead-list li {
+  padding: 10px;
+  margin: 8px 0;
+  background: white;
+  border-radius: 6px;
+}
+
+#new-lead-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+#new-lead-form input,
+#new-lead-form select,
+#new-lead-form button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+#new-lead-form button {
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}

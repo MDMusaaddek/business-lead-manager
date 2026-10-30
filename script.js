@@ -153,3 +153,88 @@ const newLeadNames = allLeads
   });
 
 console.log(newLeadNames);
+
+// 1. Create sample leads
+const managerLeads = [
+  { name: "Alex Morgan", status: "New" },
+  { name: "Sarah Johnson", status: "Contacted" },
+  { name: "John Smith", status: "New" },
+  { name: "Maria Garcia", status: "Contacted" },
+  { name: "David Wilson", status: "New" }
+];
+
+// 2. Select HTML elements
+const leadList = document.querySelector("#lead-list");
+const statusFilter = document.querySelector("#status-filter");
+
+// 3. Create a function to display leads
+function displayLeads(leads) {
+  leadList.innerHTML = "";
+
+  leads.forEach(function (lead) {
+    const listItem = document.createElement("li");
+
+    listItem.textContent =
+      lead.name + " - " + lead.status;
+
+    leadList.appendChild(listItem);
+  });
+}
+
+// 4. Filter leads when dropdown changes
+if (leadList && statusFilter) {
+  displayLeads(managerLeads);
+
+  statusFilter.addEventListener("change", function () {
+    const selectedStatus = statusFilter.value;
+
+    const filteredLeads = selectedStatus === "All"
+      ? managerLeads
+      : managerLeads.filter(function (lead) {
+          return lead.status === selectedStatus;
+        });
+
+    displayLeads(filteredLeads);
+  });
+}
+
+const newLeadForm = document.querySelector("#new-lead-form");
+const newLeadName = document.querySelector("#new-lead-name");
+const newLeadStatus = document.querySelector("#new-lead-status");
+
+if (newLeadForm && newLeadName && newLeadStatus) {
+  newLeadForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = newLeadName.value.trim();
+if (name.length < 3) {
+  alert("Name must contain at least 3 characters.");
+  return;
+}
+const duplicateLead = managerLeads.some(function (lead) {
+  return lead.name.toLowerCase() === name.toLowerCase();
+});
+
+if (duplicateLead) {
+  alert("This lead already exists!");
+  return;
+}
+
+    const newLead = {
+      name: name,
+      status: newLeadStatus.value
+    };
+
+    managerLeads.push(newLead);
+
+    displayLeads(
+      statusFilter.value === "All"
+        ? managerLeads
+        : managerLeads.filter(function (lead) {
+            return lead.status === statusFilter.value;
+          })
+    );
+
+    newLeadForm.reset();
+  });
+}

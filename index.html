@@ -33,6 +33,38 @@
   </form>
 </section>
 
+<section id="lead-manager">
+  <h2>Lead Manager</h2>
+
+  <label for="status-filter">Filter by status:</label>
+  <select id="status-filter">
+    <option value="All">All Leads</option>
+    <option value="New">New Leads</option>
+    <option value="Contacted">Contacted Leads</option>
+  </select>
+
+<h3>Add New Lead</h3>
+
+<form id="new-lead-form">
+  <input
+    type="text"
+    id="new-lead-name"
+    placeholder="Enter client name"
+    required
+  >
+
+  <select id="new-lead-status">
+    <option value="New">New</option>
+    <option value="Contacted">Contacted</option>
+  </select>
+
+  <button type="submit">Add Lead</button>
+</form>
+
+
+  <ul id="lead-list"></ul>
+</section>
+
 
   <main>
     <section id="home" class="hero">
